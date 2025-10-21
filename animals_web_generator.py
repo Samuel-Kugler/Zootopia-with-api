@@ -45,7 +45,7 @@ def get_animal_name() -> str:
     :return: str
     """
     while True:
-        animal_name = input("Please enter the name or type of animal you want information about: ").strip()
+        animal_name = input("Enter a name of an animal: ").strip()
 
         if animal_name:
             return animal_name

@@ -49,5 +49,9 @@ def fetch_data(animal_name: str) -> list[dict]:
         return [{"name": "Error!", "characteristics": {"type": "Response encoding problem."}}]
     except json.JSONDecodeError:
         return [{"name": "Error!", "characteristics": {"type": "Response is not valid JSON."}}]
+    except PermissionError:
+        return [{"name": "Error!", "characteristics": {"type": "Missing Permission."}}]
+    except OSError as e:
+        return [{"name": "Error!", "characteristics": {"type": f"Some other OS Error: {e}"}}]
 
     return json_file
